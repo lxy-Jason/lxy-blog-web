@@ -56,3 +56,5 @@ export interface HeadTag {
   props: Record<string, string>;
   content: string;
 }
+
+export type theme = 'auto' | 'light' | 'dark'
