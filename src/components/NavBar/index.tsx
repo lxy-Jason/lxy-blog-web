@@ -3,6 +3,7 @@ import {useContext, useEffect, useMemo, useState} from 'react'
 import Headroom from 'headroom.js'
 import {ThemeContext} from "@/utils/themeContext";
 import Link from "next/link";
+import Item from "@/components/NavBar/components/item";
 
 export default function (props: {
   logo: string,
@@ -19,7 +20,7 @@ export default function (props: {
   defaultTheme: theme,
   // subMenuOffset: number,
   // openArticleLinksInNewWindow: Boolean
-  children:any //不知道为什么要加这个
+  children: any //不知道为什么要加这个
 }) {
   const [showSearch, setShowSearch] = useState(false);
   const [headroom, setHeadroom] = useState<Headroom>()
@@ -49,11 +50,13 @@ export default function (props: {
         className=" bg-white sticky top-0 dark:bg-dark nav-shadow dark:nav-shadow-dark"
         style={{zIndex: 90}}
       >
+        {/*导航栏部分*/}
         <div
           className=" flex  items-center w-full border-b border-gray-200 h-14 dark:border-nav-dark"
-          style={{ height: 56 }}
+          style={{height: 56}}
         >
-          <div className="mx-4 flex items-center">
+          <div className="mx-4 flex items-center h-full">
+            {/*移动端适配内容*/}
             <div
               className="cursor-pointer block md:hidden"
               onClick={() => {
@@ -81,11 +84,33 @@ export default function (props: {
                 </svg>
               </span>
             </div>
+            {/*跳转到首页*/}
             <Link href="/">
-              <div className="text-gray-800 cursor-pointer select-none text-lg dark:text-dark lg:text-xl font-medium  mr-4 hidden md:block">
+              <div
+                className="text-gray-800 cursor-pointer select-none text-lg dark:text-dark lg:text-xl font-medium  mr-4 hidden md:block">
                 {props.siteName}
               </div>
             </Link>
+            <div
+              className="flex justify-between h-full flex-grow nav-content"
+            >
+              {/*/!*移动端适配*!/*/}
+              <div
+                style={{transform: "translateX(30px)"}}
+                className="cursor-pointer md:hidden  flex-grow text-center  flex items-center justify-center select-none dark:text-dark"
+              >
+                <Link href='/'>
+                  <div>{props.siteName}</div>
+                </Link>
+              </div>
+              <ul className='md:flex h-full items-center text-sm text-gray-600 dark:text-dark hidden'>
+                {
+                  props.menus.map((m) => {
+                    return <Item key={m.id} item={m}/>;
+                  })
+                }
+              </ul>
+            </div>
           </div>
         </div>
       </div>

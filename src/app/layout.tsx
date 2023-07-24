@@ -3,9 +3,8 @@
  * @Date: 2023-07-15 18:12:06
  * @LastEditors: xiangyue_li
  */
-import './globals.css'
 import type { Metadata } from 'next'
-
+import "@/styles"
 export const metadata: Metadata = {
   title: 'lxy-blog-web',
   description: 'lxy-Jason的博客',
