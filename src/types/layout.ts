@@ -3,6 +3,8 @@
  * @Date: 2023-07-15 18:46:24
  * @LastEditors: xiangyue_li
  */
+
+export type defaultTheme = "auto" | "dark" | "light"
 export interface LayoutProps {
   description: string;
   // ipcNumber: string;
@@ -28,7 +30,7 @@ export interface LayoutProps {
   // showFriends: "true" | "false";
   // headerLeftContent: "siteLogo" | "siteName";
   // enableComment: "true" | "false";
-  defaultTheme: "auto" | "dark" | "light";
+  defaultTheme:defaultTheme ;
   // enableCustomizing: "true" | "false";
   // showDonateButton: "true" | "false";
   // showCopyRight: "true" | "false";
