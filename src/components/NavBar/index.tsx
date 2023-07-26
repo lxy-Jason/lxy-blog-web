@@ -4,6 +4,7 @@ import Headroom from 'headroom.js'
 import {ThemeContext} from "@/utils/themeContext";
 import Link from "next/link";
 import Item from "@/components/NavBar/components/item";
+import ThemeButton from "@/components/NavBar/components/themeButton";
 
 export default function (props: {
   logo: string,
@@ -78,7 +79,7 @@ export default function (props: {
               </ul>
               {/*导航栏右边*/}
               <div className='flex nav-action'>
-
+                <ThemeButton defaultTheme={props.defaultTheme}></ThemeButton>
               </div>
             </div>
 

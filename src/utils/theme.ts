@@ -41,3 +41,19 @@ export const applyTheme = (
     }
   }
 }
+
+export const initTheme = () => {
+  if(typeof localStorage === 'undefined') {
+    //应该是非浏览器环境时
+    return 'auto'
+  }
+  if(!('theme' in localStorage) || localStorage.theme === 'auto'){
+    //localStorage上没有theme或者theme为'auto'时
+    return 'auto'
+  }
+  if(localStorage.theme === 'dark'){
+    return 'dark'
+  }
+
+  return 'light'
+}
