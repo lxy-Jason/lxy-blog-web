@@ -1,5 +1,5 @@
 import {MenuItem, theme} from "@/types/layout";
-import {useContext, useEffect, useMemo, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import Headroom from 'headroom.js'
 import {ThemeContext} from "@/utils/themeContext";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export default function (props: {
 }) {
   // const [showSearch, setShowSearch] = useState(false);
   const [headroom, setHeadroom] = useState<Headroom>()
-  const {theme} = useContext(ThemeContext)
+  // const {theme} = useContext(ThemeContext)
 
   // const picUrl = useMemo(() => {
   //   if (theme.includes("dark") && props.logoDark && props.logoDark !== '') {
