@@ -60,3 +60,31 @@ export interface HeadTag {
 }
 
 export type theme = 'auto' | 'light' | 'dark'
+
+export type SocialType =
+  | "bilibili"
+  | "email"
+  | "github"
+  | "wechat"
+  | "gitee"
+  | "wechat-dark";
+export interface SocialItem {
+  updatedAt: string;
+  type: SocialType;
+  value: string;
+  dark?: string;
+}
+
+export interface AuthorCardProps {
+  author: string;
+  desc: string;
+  logo: string;
+  logoDark: string;
+  postNum: number;
+  catelogNum: number;
+  tagNum: number;
+  enableComment?: "true" | "false";
+  socials: SocialItem[];
+  // showSubMenu: "true" | "false";
+  // showRSS: "true" | "false";
+}
