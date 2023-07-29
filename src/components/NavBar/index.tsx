@@ -56,33 +56,33 @@ export default function (props: {
           className=" flex  items-center w-full border-b border-gray-200 h-14 dark:border-nav-dark"
           style={{height: 56}}
         >
-          <div className="mx-4 flex items-center h-full">
-            {/*todo移动端适配内容*/}
-            {/*导航栏左边*/}
+          {/*导航栏左边logo部分*/}
+          <div className="mx-4 flex items-center">
             <Link href="/">
               <div
                 className="text-gray-800 cursor-pointer select-none text-lg dark:text-dark lg:text-xl font-medium  mr-4 hidden md:block">
                 {props.siteName}
               </div>
             </Link>
-            {/*导航菜单项 + 右边内容*/}
-            <div
-              className="flex justify-between h-full flex-grow nav-content"
-            >
-              {/*/!*移动端适配todo*!/*/}
-              <ul className='md:flex h-full items-center text-sm text-gray-600 dark:text-dark hidden'>
-                {
-                  props.menus.map((m) => {
-                    return <Item key={m.id} item={m}/>;
-                  })
-                }
-              </ul>
-              {/*导航栏右边*/}
-              <div className='flex nav-action'>
-                <ThemeButton defaultTheme={props.defaultTheme}></ThemeButton>
-              </div>
-            </div>
+          </div>
+          {/*todo移动端适配内容*/}
 
+          {/*导航菜单项 + 右边内容*/}
+          <div
+            className="flex justify-between h-full flex-grow nav-content"
+          >
+            {/*/!*移动端适配todo*!/*/}
+            <ul className='md:flex h-full items-center text-sm text-gray-600 dark:text-dark hidden'>
+              {
+                props.menus.map((m) => {
+                  return <Item key={m.id} item={m}/>;
+                })
+              }
+            </ul>
+            {/*导航栏右边*/}
+            <div className='flex nav-action'>
+              <ThemeButton defaultTheme={props.defaultTheme}></ThemeButton>
+            </div>
           </div>
         </div>
       </div>
