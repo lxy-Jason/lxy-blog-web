@@ -1,6 +1,6 @@
 
 import {defaultTheme} from "@/types/layout";
-import Core from "@/components/NavBar/components/core";
+import Core from "./core";
 export default function (props: {
   defaultTheme:defaultTheme
 }){

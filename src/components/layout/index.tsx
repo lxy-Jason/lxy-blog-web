@@ -10,12 +10,13 @@ import {useState, useRef} from "react"
 import {ThemeContext, RealThemeType} from "@/utils/themeContext";
 import {getTheme} from '@/utils/theme'
 import {Toaster} from "react-hot-toast";
-import NavBar from "../NavBar";
+import NavBar from "./components/NavBar";
+import LayoutBody from "./components/layoutBody";
 
 export default function (props: {
   option: LayoutProps,
   title: string,
-  // sideBar: any,
+  sideBar: any,
   children: any
 }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,7 +34,8 @@ export default function (props: {
         setTheme,
         theme
       }}>
-        <Toaster />
+        <Toaster/>
+        {/*导航栏*/}
         <NavBar
           defaultTheme={props.option.defaultTheme}
           menus={props.option.menus}
@@ -44,7 +46,12 @@ export default function (props: {
           isOpen={isOpen}
           setOpen={setIsOpen}
         >
-
+          {/*主体部分*/}
+          <div className=" mx-auto  lg:px-6  md:py-4 py-2 px-2 md:px-4  text-gray-700 ">
+            <LayoutBody  sideBar={props.sideBar} >
+              {props.children}
+            </LayoutBody>
+          </div>
         </NavBar>
       </ThemeContext.Provider>
     </>
