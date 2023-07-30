@@ -46,13 +46,13 @@ export default function (props: {
           isOpen={isOpen}
           setOpen={setIsOpen}
         >
-          {/*主体部分*/}
-          <div className=" mx-auto  lg:px-6  md:py-4 py-2 px-2 md:px-4  text-gray-700 ">
-            <LayoutBody  sideBar={props.sideBar} >
-              {props.children}
-            </LayoutBody>
-          </div>
         </NavBar>
+        {/*主体部分*/}
+        <div className=" mx-auto  lg:px-6  md:py-4 py-2 px-2 md:px-4  text-gray-700 ">
+          <LayoutBody sideBar={props.sideBar}>
+            {props.children}
+          </LayoutBody>
+        </div>
       </ThemeContext.Provider>
     </>
   )
