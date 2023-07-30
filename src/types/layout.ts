@@ -29,15 +29,15 @@ export interface LayoutProps {
   // showAdminButton: "true" | "false";
   // showFriends: "true" | "false";
   // headerLeftContent: "siteLogo" | "siteName";
-  // enableComment: "true" | "false";
+  enableComment: "true" | "false";
   defaultTheme:defaultTheme ;
   // enableCustomizing: "true" | "false";
   // showDonateButton: "true" | "false";
   // showCopyRight: "true" | "false";
   // showRSS: "true" | "false";
   // showExpirationReminder: "true" | "false";
-  // openArticleLinksInNewWindow: "true" | "false";
-  // showEditButton: "true" | "false";
+  openArticleLinksInNewWindow: "true" | "false";
+  showEditButton: "true" | "false";
   // subMenuOffset: number;
   // customCss?: string;
   // customScript?: string;

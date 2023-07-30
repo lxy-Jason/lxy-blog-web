@@ -2,6 +2,9 @@ import {LayoutProps} from "@/types/layout";
 import {websiteData, authorCardData} from "@/setting";
 import Layout from '@/components/layout'
 import AuthorCard from "@/components/authorCard";
+import PostCard from "@/components/postCard";
+import {articles} from "@/types/article";
+import {getArticlePath} from "@/utils/getArticlepath";
 
 //props数据目前使用setting中的数据
 export default function Home() {
@@ -11,7 +14,27 @@ export default function Home() {
       title={websiteData.siteName}
       sideBar={<AuthorCard option={authorCardData}></AuthorCard>}
     >
-
+      {articles.map((article) => (
+        <PostCard
+          showEditButton={websiteData.showEditButton === "true"}
+          setContent={() => {
+          }}
+          openArticleLinksInNewWindow={
+            websiteData.openArticleLinksInNewWindow == "true"
+          }
+          private={article.private}
+          top={article.top || 0}
+          id={getArticlePath(article)}
+          key={article.id}
+          title={article.title}
+          updatedAt={new Date(article.updatedAt)}
+          createdAt={new Date(article.createdAt)}
+          category={article.category}
+          content={article.content || ""}
+          type={"overview"}
+          enableComment={websiteData.enableComment}
+        ></PostCard>
+      ))}
     </Layout>
   );
 }
