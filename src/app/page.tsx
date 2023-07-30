@@ -17,8 +17,6 @@ export default function Home() {
       {articles.map((article) => (
         <PostCard
           showEditButton={websiteData.showEditButton === "true"}
-          setContent={() => {
-          }}
           openArticleLinksInNewWindow={
             websiteData.openArticleLinksInNewWindow == "true"
           }

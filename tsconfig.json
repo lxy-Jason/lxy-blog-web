@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": ["unist-util-visit"],
     "plugins": [
       {
         "name": "next"
