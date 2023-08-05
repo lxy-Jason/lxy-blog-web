@@ -1,20 +1,13 @@
-import {LayoutProps} from "@/types/layout";
 import {websiteData, authorCardData} from "@/setting";
-import Layout from '@/components/layout'
 import AuthorCard from "@/components/authorCard";
 import PostCard from "@/components/postCard";
 import {articles} from "@/types/article";
 import {getArticlePath} from "@/utils/getArticlepath";
-
+import RootLayout from "@/app/layout";
 //props数据目前使用setting中的数据
 export default function Home() {
   return (
-    <Layout
-      option={websiteData}
-      title={websiteData.siteName}
-      sideBar={<AuthorCard option={authorCardData}></AuthorCard>}
-    >
-      {articles.map((article) => (
+    articles.map((article) => (
         <PostCard
           showEditButton={websiteData.showEditButton === "true"}
           openArticleLinksInNewWindow={
@@ -32,7 +25,7 @@ export default function Home() {
           type={"overview"}
           enableComment={websiteData.enableComment}
         ></PostCard>
-      ))}
-    </Layout>
-  );
+      )
+    )
+  )
 }
