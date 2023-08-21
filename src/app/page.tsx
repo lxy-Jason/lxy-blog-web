@@ -1,9 +1,10 @@
 import {websiteData, authorCardData} from "@/setting";
 import AuthorCard from "@/components/authorCard";
 import PostCard from "@/components/postCard";
-import {articles} from "@/types/article";
+import {articles, getArticle} from "@/types/article";
 import {getArticlePath} from "@/utils/getArticlepath";
 import RootLayout from "@/app/layout";
+import {getArticleList} from "@/api/article";
 //props数据目前使用setting中的数据
 export default function Home() {
   return (
@@ -29,3 +30,4 @@ export default function Home() {
     )
   )
 }
+console.log(111)

@@ -1,3 +1,5 @@
+import {getArticleList} from "@/api/article";
+
 export interface Article {
   content: string;
   category: string;
@@ -106,3 +108,9 @@ export const articles = [
     "lastVisitedTime": "2023-07-29T09:30:31.279Z"
   }
 ]
+export async function getArticle() {
+  console.log(111)
+  const article = await getArticleList({page: 1, pageSize: 10})
+  console.log(article)
+}
+
