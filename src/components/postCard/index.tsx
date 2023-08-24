@@ -16,6 +16,7 @@ export default function (props: {
   category: string;
   content: string;
   type: "overview" | "article" | "about";
+  path: string,
   pay?: string[];
   payDark?: string[];
   author?: string;
@@ -23,8 +24,8 @@ export default function (props: {
   next?: { id: number; title: string; pathname?: string };
   pre?: { id: number; title: string; pathname?: string };
   enableComment: "true" | "false";
-  top: number;
-  private: boolean;
+  top?: number;
+  private?: boolean;
   // showDonateInAbout?: boolean;
   // hideDonate?: boolean;
   // hideCopyRight?: boolean;
@@ -56,7 +57,6 @@ export default function (props: {
   return (
     <div
       className={'post-card-wrapper'}
-
     >
       <div
         style={{position: "relative"}}

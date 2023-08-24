@@ -1,18 +1,18 @@
 import {getArticleList} from "@/api/article";
 
-export interface Article {
+export type Article = {
   content: string;
-  category: string;
-  tags: string[];
+  // category: string;
+  // tags: string[];
   createdAt: string;
   title: string;
   updatedAt: string;
-  id: number;
+  _id: number;
   top?: number;
-  private: boolean;
+  private?: boolean;
   author?: string;
   copyright?: string;
-  pathname?: string;
+  path: string;
 }
 
 //mock数据
@@ -108,6 +108,7 @@ export const articles = [
     "lastVisitedTime": "2023-07-29T09:30:31.279Z"
   }
 ]
+
 export async function getArticle() {
   console.log(111)
   const article = await getArticleList({page: 1, pageSize: 10})

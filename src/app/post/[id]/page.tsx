@@ -3,6 +3,7 @@ import {websiteData} from "@/setting";
 import {getArticlePath} from "@/utils/getArticlepath";
 import PostCard from "@/components/postCard";
 import {articles} from "@/types/article";
+import {getArticleById, getArticleList} from "@/api/article";
 
 const article = articles[0];
 export interface PostPagesProps {
@@ -23,10 +24,11 @@ export interface PostPagesProps {
   showSubMenu: "true" | "false";
 }
 
-export default function () {
-
+export  default async function ({params}) {
+  console.log(params);
+  const {data:article}: { data: Article } = await getArticleById(params.id)
+  console.log(article)
   return (
-
     <PostCard
       showEditButton={websiteData.showEditButton === "true"}
       openArticleLinksInNewWindow={
@@ -35,11 +37,12 @@ export default function () {
       private={article.private}
       top={article.top || 0}
       id={getArticlePath(article)}
-      key={article.id}
+      key={article._id}
       title={article.title}
+      path={article.path}
       updatedAt={new Date(article.updatedAt)}
       createdAt={new Date(article.createdAt)}
-      category={article.category}
+      category={""}
       content={article.content || ""}
       type={"article"}
       enableComment={websiteData.enableComment}
