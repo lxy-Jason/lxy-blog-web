@@ -2,7 +2,7 @@ import request from "@/api/request";
 import {Article} from "@/types/article";
 
 type ArticleData = {
-  data: Article[],
+  data: { list:Article[],total?:number },
   msg: string
 }
 

@@ -1,14 +1,15 @@
-import {websiteData, authorCardData} from "@/setting";
-import PostCard from "@/components/postCard";
-import {Article, articles, getArticle} from "@/types/article";
+import {Article} from "@/types/article";
 import {getArticleList} from "@/api/article";
+import PostCard from "@/components/postCard";
+import {websiteData} from "@/setting";
 import PageNav from "@/components/pageNav";
 import React from "react";
 
 
-//props数据目前使用setting中的数据
-export default async function Home() {
-  const {data} = await getArticleList({page: 1, pageSize: 5})
+export default async function ({params}) {
+  console.log(params)
+  const {num} = params
+  const {data} = await getArticleList({page: num, pageSize: 5})
   return (
     <>
       <div className="space-y-2 md:space-y-4">
@@ -36,7 +37,7 @@ export default async function Home() {
       </div>
       <PageNav
         total={data.total}
-        current={1}
+        current={Number(num)}
         base={"/"}
         more={"/page"}
       ></PageNav>
