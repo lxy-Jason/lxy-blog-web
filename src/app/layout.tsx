@@ -29,6 +29,7 @@ export default function RootLayout({
       sideBar={<AuthorCard option={authorCardData}></AuthorCard>}
     >
       {children}
+
     </Layout>
     </body>
     </html>
