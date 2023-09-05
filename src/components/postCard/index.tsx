@@ -56,7 +56,7 @@ export default function (props: {
 
   return (
     <div
-      className={'post-card-wrapper'}
+      className={'post-card-wrapper mb-5'}
     >
       <div
         style={{position: "relative"}}
