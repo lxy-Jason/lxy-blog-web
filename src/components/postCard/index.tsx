@@ -47,7 +47,7 @@ export default function (props: {
       if (r.length > 1) {
         return r[0];
       } else {
-        return content.substring(0, 50);
+        return content.substring(0, 100);
       }
     } else {
       return content.replace("<!-- more -->", "");
