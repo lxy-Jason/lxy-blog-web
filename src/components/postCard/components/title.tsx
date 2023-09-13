@@ -41,7 +41,7 @@ export function Title(props: {
           target="_blank"
         >
           <div className=" text-dark dark:text-gray-700">
-            <div>编辑</div>
+            {/*<div>编辑</div>*/}
           </div>
         </a>
       )}
