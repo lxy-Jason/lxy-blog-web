@@ -2,10 +2,8 @@ import {Article} from "@/types/article";
 import {websiteData} from "@/setting";
 import {getArticlePath} from "@/utils/getArticlepath";
 import PostCard from "@/components/postCard";
-import {articles} from "@/types/article";
 import {getArticleById, getArticleList} from "@/api/article";
 
-const article = articles[0];
 export interface PostPagesProps {
   // article: Article;
   pay: string[];

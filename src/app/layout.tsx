@@ -5,7 +5,7 @@
  */
 // import type {Metadata} from 'next'
 import "@/styles"
-import {authorCardData, websiteData} from "@/setting";
+import {getAuthorCardData, websiteData} from "@/setting";
 import Layout from "@/components/layout";
 import React from "react";
 import AuthorCard from "@/components/authorCard";
@@ -15,11 +15,12 @@ import AuthorCard from "@/components/authorCard";
 //   description: 'lxy-Jason的博客',
 // }
 
-export default function RootLayout({
+export default async function RootLayout({
                                      children,
                                    }: {
   children: React.ReactNode,
 }) {
+  const authorCardData = await getAuthorCardData()
   return (
     <html lang="en">
     <body>

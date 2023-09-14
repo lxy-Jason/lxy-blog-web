@@ -1,4 +1,6 @@
 import {AuthorCardProps, LayoutProps, MenuItem, SocialItem, SocialType} from '@/types/layout'
+import {getCategoryList} from "@/api/category";
+import {getAllArticleNum} from "@/api/article";
 
 export const defaultMenu: MenuItem[] = [
     {
@@ -13,12 +15,12 @@ export const defaultMenu: MenuItem[] = [
     //     value: "/tag",
     //     level: 0,
     // },
-    // {
-    //     id: 2,
-    //     name: "分类",
-    //     value: "/category",
-    //     level: 0,
-    // },
+    {
+        id: 2,
+        name: "分类",
+        value: "/category",
+        level: 0,
+    },
     // {
     //     id: 3,
     //     name: "时间线",
@@ -67,14 +69,19 @@ const socialsData: SocialItem[] = [
         value: 'sbishgtlo@gmail.com',
     }
 ]
-export const authorCardData: AuthorCardProps = {
-    author:'lxy-Jason',
-    desc:'to do some cool',
-    logo:"https://avatars.githubusercontent.com/u/94227696?s=400&u=7fff9765087b9819f0f48ba7428e972d5b1baaee&v=4",
-    logoDark:'https://tupian.qqw21.com/article/UploadPic/2013-4/201342774330725.jpg',
-    postNum: 0,
-    catelogNum: 0,
-    tagNum: 0,
-    enableComment:"false",
-    socials:socialsData,
+
+export  const getAuthorCardData =async (): Promise<AuthorCardProps> => {
+    const {data:catelogeData} = await getCategoryList()
+    const {data: postNum} = await getAllArticleNum()
+  return {
+      author:'lxy-Jason',
+      desc:'to do some cool',
+      logo:"https://avatars.githubusercontent.com/u/94227696?s=400&u=7fff9765087b9819f0f48ba7428e972d5b1baaee&v=4",
+      logoDark:'https://tupian.qqw21.com/article/UploadPic/2013-4/201342774330725.jpg',
+      postNum: postNum,
+      catelogNum: catelogeData.length,
+      tagNum: 0,
+      enableComment:"false",
+      socials:socialsData,
+  }
 }

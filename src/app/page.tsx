@@ -1,6 +1,5 @@
-import {websiteData, authorCardData} from "@/setting";
+import {websiteData} from "@/setting";
 import PostCard from "@/components/postCard";
-import {Article, articles, getArticle} from "@/types/article";
 import {getArticleList} from "@/api/article";
 import PageNav from "@/components/pageNav";
 import React from "react";
