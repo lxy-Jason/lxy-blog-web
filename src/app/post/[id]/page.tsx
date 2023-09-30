@@ -1,7 +1,7 @@
 import {Article} from "@/types/article";
 import {websiteData} from "@/setting";
 import PostCard from "@/components/postCard";
-import {getArticleById, getArticleList} from "@/api/article";
+import {getArticleById} from "@/api/article";
 
 export interface PostPagesProps {
   // article: Article;
