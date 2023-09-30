@@ -1,4 +1,3 @@
-
 export type Article = {
   content: string;
   category: string;
@@ -14,6 +13,14 @@ export type Article = {
   path: string;
 }
 export type ArticleData = {
-  data: { list:Article[],total?:number },
+  data: { list: Article[], total?: number },
   msg: string
+}
+
+export type categoryArticleList = {
+  data: {
+    _id: string,
+    title: string,
+    createdAt: string
+  }[]
 }

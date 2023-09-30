@@ -24,7 +24,7 @@ export default async function () {
               }
               defaultOpen={false}
               key={item.name}
-              date={item.name}
+              name={item.name}
               articleCount={item.articleCount}
               showYear={true}
             ></TimeLineItem>

@@ -1,6 +1,5 @@
 import request from "@/api/request";
-import {Article, ArticleData} from "@/types/article";
-
+import {Article, ArticleData, categoryArticleList} from "@/types/article";
 
 
 export async function getArticleList(params): Promise<ArticleData> {
@@ -14,6 +13,10 @@ export async function getArticleById(id): Promise<{
   return await request.get(`/article/getArticleById/${id}`)
 }
 
-export async function getAllArticleNum(): Promise<{ data: number, msg:string }> {
+export async function getAllArticleNum(): Promise<{ data: number, msg: string }> {
   return await request.get('/article/getAllArticleNum')
+}
+
+export async function getArticleCountByCategoryName(name): Promise<categoryArticleList> {
+  return await request.get(`/article/getArticleCountByCategoryName/${name}`)
 }

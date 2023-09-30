@@ -1,6 +1,5 @@
 import {Article} from "@/types/article";
 import {websiteData} from "@/setting";
-import {getArticlePath} from "@/utils/getArticlepath";
 import PostCard from "@/components/postCard";
 import {getArticleById, getArticleList} from "@/api/article";
 
@@ -34,7 +33,7 @@ export  default async function ({params}) {
       }
       private={article.private}
       top={article.top || 0}
-      id={getArticlePath(article)}
+      id={article._id}
       key={article._id}
       title={article.title}
       path={article.path}
