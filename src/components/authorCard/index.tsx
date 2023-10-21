@@ -61,19 +61,19 @@ export default function (props: {
                 </div>
               </div>
             </Link>
-            <Link href="/tag">
-              <div
-                className="group flex flex-col justify-center items-center text-gray-600 text-sm px-1 dark:text-dark">
-                <div
-                  className="group-hover:text-gray-900 font-bold group-hover:font-black dark:group-hover:text-dark-hover">
-                  {props.option.tagNum}
-                </div>
-                <div
-                  className=" group-hover:text-gray-900 group-hover:font-normal text-gray-500 dark:text-dark-light dark:group-hover:text-dark-hover">
-                  标签
-                </div>
-              </div>
-            </Link>
+            {/*<Link href="/tag">*/}
+            {/*  <div*/}
+            {/*    className="group flex flex-col justify-center items-center text-gray-600 text-sm px-1 dark:text-dark">*/}
+            {/*    <div*/}
+            {/*      className="group-hover:text-gray-900 font-bold group-hover:font-black dark:group-hover:text-dark-hover">*/}
+            {/*      {props.option.tagNum}*/}
+            {/*    </div>*/}
+            {/*    <div*/}
+            {/*      className=" group-hover:text-gray-900 group-hover:font-normal text-gray-500 dark:text-dark-light dark:group-hover:text-dark-hover">*/}
+            {/*      标签*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</Link>*/}
           </div>
         </div>
         {/*社交媒体账号*/}
