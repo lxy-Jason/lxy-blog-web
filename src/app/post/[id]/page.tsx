@@ -22,7 +22,6 @@ export interface PostPagesProps {
 }
 
 export  default async function ({params}) {
-  console.log(params);
   const {data:article}: { data: Article } = await getArticleById(params.id)
   console.log(article)
   return (
