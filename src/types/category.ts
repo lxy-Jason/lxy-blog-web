@@ -1,11 +1,11 @@
 export type categoryList = {
   data: {
-    name: string,
-    articleCount: number,
+    name: string;
     articleList: {
-      title: string,
-      updatedAt: string
-    }[]
-  }[],
-  msg: string,
-}
+      title: string;
+      date: string;
+      id: string;
+    }[];
+  }[];
+  msg: string;
+};
