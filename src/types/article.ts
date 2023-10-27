@@ -11,16 +11,25 @@ export type Article = {
   author?: string;
   copyright?: string;
   path: string;
-}
+};
 export type ArticleData = {
-  data: { list: Article[], total?: number },
-  msg: string
-}
+  data: { list: Article[]; total?: number };
+  msg: string;
+};
 
 export type categoryArticleList = {
   data: {
-    _id: string,
-    title: string,
-    createdAt: string
-  }[]
-}
+    _id: string;
+    title: string;
+    createdAt: string;
+  }[];
+};
+export type timelineArticleDate = {
+  title: string;
+  id: string;
+  date: string;
+  month?: string;
+};
+export type timelineData = {
+  [month: string]: Array<timelineArticleDate>;
+};

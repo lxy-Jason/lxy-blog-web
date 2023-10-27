@@ -84,7 +84,7 @@ export default function (props: {
                 target={getTarget(props.openArticleLinksInNewWindow)}>
                 <div
                   className=' dark:bg-dark dark:hover:bg-dark-light dark:hover:text-dark-r
-                    dark:border-dark dark:text-dark bg rounded border-2 border-gray-800 px-2
+                    dark:border-dark dark:text-dark bg rounded border-2 border-gray-800 bg-white px-2
                     py-1 text-sm text-gray-700 transition-all hover:bg-gray-800 hover:text-gray-50
                     md:text-base
                      '>
