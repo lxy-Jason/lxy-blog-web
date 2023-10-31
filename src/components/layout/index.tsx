@@ -5,24 +5,30 @@
  */
 'use client';
 import Head from 'next/head';
-import { LayoutProps } from '@/types/layout';
-import { useState, useRef } from 'react';
-import { ThemeContext, RealThemeType } from '@/utils/themeContext';
-import { getTheme } from '@/utils/theme';
-import { Toaster } from 'react-hot-toast';
+import {AuthorCardProps, LayoutProps} from '@/types/layout';
+import React, {useState, useRef} from 'react';
+import {ThemeContext, RealThemeType} from '@/utils/themeContext';
+import {getTheme} from '@/utils/theme';
+import {Toaster} from 'react-hot-toast';
 import NavBar from './components/NavBar';
 import LayoutBody from './components/layoutBody';
 import BackToTopBtn from '@/components/BackToTop';
+import {usePathname} from 'next/navigation';
+import AuthorCard from '@/components/authorCard';
+import Toc from '@/components/Toc';
 
 export default function (props: {
   option: LayoutProps;
   title: string;
-  sideBar: any;
+  authorCardData: AuthorCardProps;
   children: any;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   // const {current} = useRef({hasInit: false})
   const [theme, setTheme] = useState<RealThemeType>(getTheme('auto'));
+  const path = usePathname();
+  const isPost = path.slice(1, 5) === 'post';
+
   return (
     <>
       <Head>
@@ -36,7 +42,7 @@ export default function (props: {
           setTheme,
           theme,
         }}>
-        <Toaster />
+        <Toaster/>
         {/*导航栏*/}
         <NavBar
           defaultTheme={props.option.defaultTheme}
@@ -49,7 +55,16 @@ export default function (props: {
           setOpen={setIsOpen}></NavBar>
         {/*主体部分*/}
         <div className=' mx-auto  px-2  py-2 text-gray-700 md:px-4 md:py-4  lg:px-6 '>
-          <LayoutBody sideBar={props.sideBar}>{props.children}</LayoutBody>
+          <LayoutBody
+            sideBar={
+              isPost ? (
+                <Toc showSubMenu={'true'}></Toc>
+              ) : (
+                <AuthorCard option={props.authorCardData}></AuthorCard>
+              )
+            }>
+            {props.children}
+          </LayoutBody>
         </div>
       </ThemeContext.Provider>
     </>

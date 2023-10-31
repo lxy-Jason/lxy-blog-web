@@ -5,31 +5,30 @@
  */
 // import type {Metadata} from 'next'
 import '@/styles';
-import { getAuthorCardData, websiteData } from '@/setting';
+import {getAuthorCardData, websiteData} from '@/setting';
 import Layout from '@/components/layout';
 import React from 'react';
-import AuthorCard from '@/components/authorCard';
+import {Providers} from '@/lib/providers';
+
 // export const metadata: Metadata = {
 //   title: 'lxy-blog-web',
 //   description: 'lxy-Jason的博客',
 // }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout(props: React.PropsWithChildren) {
   const authorCardData = await getAuthorCardData();
   return (
-    <html lang='en'>
+    <Providers>
+      <html lang='en'>
       <body>
-        <Layout
-          option={websiteData}
-          title={websiteData.siteName}
-          sideBar={<AuthorCard option={authorCardData}></AuthorCard>}>
-          {children}
-        </Layout>
+      <Layout
+        option={websiteData}
+        title={websiteData.siteName}
+        authorCardData={authorCardData}>
+        {props.children}
+      </Layout>
       </body>
-    </html>
+      </html>
+    </Providers>
   );
 }

@@ -5,7 +5,7 @@ export type Article = {
   createdAt: string;
   title: string;
   updatedAt: string;
-  _id: number;
+  _id: string;
   top?: number;
   private?: boolean;
   author?: string;

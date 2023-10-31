@@ -44,8 +44,8 @@ export default function (props: {
         }
       }
     }
-    setCurrIndex(top.index);
-    updateHash(top.text);
+    setCurrIndex(top?.index);
+    updateHash(top?.text);
   }, 100);
 
   useEffect(() => {
