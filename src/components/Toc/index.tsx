@@ -30,7 +30,7 @@ export default function (props: { showSubMenu: 'true' | 'false' }) {
     <div className='sticky' id='toc-card'>
       <div
         id='toc-container'
-        className='card-shadow dark:card-shadow-dark dark:bg-dark ml-2 w-60 overflow-y-auto bg-white pb-2'
+        className='card-shadow dark:card-shadow-dark dark:bg-dark ml-2 w-60 overflow-y-auto bg-white'
         style={{ maxHeight: 'calc(100vh - 200px)' }}>
         <MarkdownTocBar content={article.content} headingOffset={56} />
       </div>

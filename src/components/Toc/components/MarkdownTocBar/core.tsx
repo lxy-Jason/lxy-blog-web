@@ -107,34 +107,38 @@ export default function (props: {
 
   return (
     <>
-      <div className='relative' style={{ position: 'relative' }}>
-        {props.mobile ? (
-          <>
-            <h2
-              style={{ fontWeight: 600, fontSize: '1.5em', marginBottom: 4 }}
-              className='dark:text-dark text-gray-700 '>
+      {items.length ? (
+        <div className='relative' style={{ position: 'relative' }}>
+          {props.mobile ? (
+            <>
+              <h2
+                style={{ fontWeight: 600, fontSize: '1.5em', marginBottom: 4 }}
+                className='dark:text-dark text-gray-700 '>
+                目录
+              </h2>
+            </>
+          ) : (
+            <div
+              className='dark:text-dark mt-4 cursor-pointer text-center text-lg font-medium text-gray-700'
+              onClick={() => {
+                scrollTo(window, {
+                  top: 0,
+                  easing: 'ease-in-out',
+                  duration: 800,
+                });
+              }}>
               目录
-            </h2>
-          </>
-        ) : (
-          <div
-            className='dark:text-dark mt-4 cursor-pointer text-center text-lg font-medium text-gray-700'
-            onClick={() => {
-              scrollTo(window, {
-                top: 0,
-                easing: 'ease-in-out',
-                duration: 800,
-              });
-            }}>
-            目录
-          </div>
-        )}
+            </div>
+          )}
 
-        <div className='markdown-navigation' style={{ position: 'relative' }}>
-          {res}
+          <div className='markdown-navigation' style={{ position: 'relative' }}>
+            {res}
+          </div>
+          <div style={{ marginBottom: 10, marginTop: -2 }} />
         </div>
-        <div style={{ marginBottom: 10, marginTop: -2 }} />
-      </div>
+      ) : (
+        ''
+      )}
     </>
   );
 }
