@@ -17,11 +17,12 @@ export async function getArticleById(id): Promise<{
   return await request.get(`/article/getArticleById/${id}`);
 }
 
+//精选文章总数
 export async function getAllArticleNum(): Promise<{
   data: number;
   msg: string;
 }> {
-  return await request.get('/article/getAllArticleNum');
+  return await request.get('/article/getAllStarArticleNum');
 }
 
 export async function getArticleCountByCategoryName(
