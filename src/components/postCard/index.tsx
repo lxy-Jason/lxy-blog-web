@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { getTarget } from '@/utils/getTarget';
 import Markdown from '@/components/markdown';
 import { useMemo, useState } from 'react';
+import { SubTitle } from '@/components/postCard/components/subTitle';
 
 export default function (props: {
   id: number | string;
@@ -68,6 +69,15 @@ export default function (props: {
           showEditButton={props.showEditButton}></Title>
 
         {/*  子标题todo*/}
+        <SubTitle
+          openArticleLinksInNewWindow={props.openArticleLinksInNewWindow}
+          type={props.type}
+          id={props.id}
+          updatedAt={props.updatedAt}
+          createdAt={props.createdAt}
+          catelog={props.category}
+          enableComment={props.enableComment}
+        />
         <div className='relative mx-2  mt-4 text-sm text-gray-600 md:text-base'>
           <div
             className='overflow-hidden'

@@ -24,7 +24,7 @@ export default async function Home() {
             path={article.path}
             updatedAt={new Date(article.updatedAt)}
             createdAt={new Date(article.createdAt)}
-            category={''}
+            category={article.category}
             content={article.content || ''}
             type={'overview'}
             enableComment={websiteData.enableComment}></PostCard>
