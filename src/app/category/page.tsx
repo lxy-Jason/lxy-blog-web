@@ -5,7 +5,6 @@ import TimeLineItem from '@/components/TimeLineItem';
 export default async function () {
   const authorData = await getAuthorCardData();
   const { data } = await getCategoryList();
-  console.log(data, 222333);
   return (
     <div className='card-shadow dark:bg-dark dark:card-shadow-dark bg-white px-8 py-4 md:px-8 md:py-6'>
       <div>

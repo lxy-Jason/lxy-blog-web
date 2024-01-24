@@ -1,4 +1,6 @@
-const baseUrl = 'http://localhost:3667';
+// const baseUrl = 'http://localhost:3667';
+
+const baseUrl = 'http://124.220.59.240:3667';
 
 class Request {
   async get<T>(url: string): Promise<T> {
