@@ -2,7 +2,6 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 
 import { getTarget } from '@/utils/link';
-import { getArticleCountByCategoryName } from '@/api/article';
 import { timelineArticleDate } from '@/types/article';
 
 export default (props: {
