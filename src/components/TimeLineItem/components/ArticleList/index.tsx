@@ -3,12 +3,7 @@ import Link from 'next/link';
 
 import { getTarget } from '@/utils/link';
 import { getArticleCountByCategoryName } from '@/api/article';
-import { useEffect, useState } from 'react';
 import { timelineArticleDate } from '@/types/article';
-
-async function getData(name) {
-  return await getArticleCountByCategoryName(name);
-}
 
 export default (props: {
   name: String;
