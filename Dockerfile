@@ -30,6 +30,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 3666
 
 CMD ["node_modules/.bin/next", "start"]
