@@ -14,7 +14,7 @@ jobs:
 
       - name: Build Docker
         run: |
-          docker build lxy-blog-web . # 使用 Docker 构建服务
+          docker build -t lxy-blog-web . # 使用 Docker 构建服务
 
       - name: Save Docker images
         run: |
