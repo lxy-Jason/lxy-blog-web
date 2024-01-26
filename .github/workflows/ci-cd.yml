@@ -39,4 +39,4 @@ jobs:
             docker stop blog-web #停止老镜像
             docker rm -f blog-web 2>/dev/null || true
             docker load < /tmp/lxy-blog-web.tar.gz  # 加载 Docker 镜像
-            docker run -d -p 3666:3666 --name blog-web  --net=host blog-web  # 使用 Docker Compose 启动服务
+            docker run -d -p 3666:3666 --name blog-web  lxy-blog-web  # 使用 Docker Compose 启动服务

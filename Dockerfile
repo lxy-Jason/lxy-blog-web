@@ -32,4 +32,4 @@ RUN npm run build
 
 EXPOSE 3666
 
-CMD ["node_modules/.bin/next", "start"]
+CMD ["sh", "-c", "node_modules/.bin/next start -p 3666"]
