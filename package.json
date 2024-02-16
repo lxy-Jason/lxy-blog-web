@@ -19,7 +19,6 @@
     "@reduxjs/toolkit": "1.9.5",
     "@types/headroom.js": "^0.12.2",
     "@types/node": "20.4.2",
-    "@types/react": "18.2.14",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "bytemd": "^1.21.0",
@@ -35,6 +34,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-redux": "8.1.0",
+    "react-use": "^17.5.0",
     "redux-logger": "^3.0.6",
     "remark-directive": "^2.0.1",
     "tailwindcss": "3.3.2",
@@ -42,6 +42,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@types/react": "18.2.55",
     "cross-env": "^7.0.3",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "3.0.3",
