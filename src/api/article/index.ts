@@ -34,3 +34,7 @@ export async function getArticleCountByCategoryName(
 export async function getTimelineInfo(): Promise<timelineData> {
   return await request.get(`/article/getTimelineInfo`);
 }
+// 全局搜索功能
+export async function globalSearch(key:string):Promise<timelineData> {
+  return await request.get(`/article/searchArticle/${key}`)
+}

@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-// import { searchArticles } from "../../api/search";
 import { useDebounce } from "react-use";
 import KeyCard from "../KeyCard";
+import {Tree} from "antd";
+import {globalSearch} from "@/api/article";
+import {DirectoryTreeProps} from "antd/es/tree";
 
+import { useRouter } from 'next/navigation'
 export default function (props: {
   visible: boolean;
   setVisible: (v: boolean) => void;
@@ -14,13 +17,25 @@ export default function (props: {
   const [typing, setTyping] = useState(false);
   const innerRef = useRef(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
+  const router = useRouter()
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, []);
+  const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
+    console.log('Trigger Select', keys, info);
+    let id  = String(info.selectedNodes[0].key)
+
+    if(info.selectedNodes[0].isLeaf){
+      id = id.slice(1)
+    }
+    router.push(`/post/${id}`)
+    props.setVisible(false);
+    document.body.style.overflow = "auto";
+
+  };
   const onKeyDown = (ev: KeyboardEvent) => {
     if (ev.key == "Escape") {
       props.setVisible(false);
@@ -39,8 +54,8 @@ export default function (props: {
   const onSearch = async (search: string) => {
     setTyping(false);
     setLoading(true);
-    const resultFromServer = await [];
-    setResult(resultFromServer);
+    const resultFromServer = await globalSearch(search);
+    setResult(resultFromServer.data);
     setLoading(false);
   };
   useDebounce(
@@ -80,15 +95,7 @@ export default function (props: {
     if (text == "有结果") {
       return (
         <div>
-          {/*<ArticleList*/}
-          {/*  showYear={true}*/}
-          {/*  articles={result}*/}
-          {/*  openArticleLinksInNewWindow={props.openArticleLinksInNewWindow}*/}
-          {/*  onClick={() => {*/}
-          {/*    props.setVisible(false);*/}
-          {/*    document.body.style.overflow = "auto";*/}
-          {/*  }}*/}
-          {/*></ArticleList>*/}
+          <Tree defaultExpandAll treeData={result} blockNode  onSelect={onSelect} />
         </div>
       );
     } else {

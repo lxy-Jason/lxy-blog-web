@@ -33,3 +33,13 @@ export type timelineArticleDate = {
 export type timelineData = {
   [month: string]: Array<timelineArticleDate>;
 };
+export type globalSearch = {
+  data:[
+    title: string,
+    key: string,
+    children: {
+      title: string,
+      key: string,
+    }[]
+  ]
+}
