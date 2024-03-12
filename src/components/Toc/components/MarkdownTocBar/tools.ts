@@ -23,7 +23,7 @@ export const washMarkdownContent = (source: string) => {
 
 export const parseNavStructure = (source: string): NavItem[] => {
   const contentWithoutCode = washMarkdownContent(source);
-  const pattOfTitle = /#+\s(.+)\r\n/g;
+  const pattOfTitle = /#+\s(.+)/g;
   const matchResult = contentWithoutCode.match(pattOfTitle);
 
   if (!matchResult) {
