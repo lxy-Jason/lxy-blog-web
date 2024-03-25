@@ -1,9 +1,9 @@
-import { getAuthorCardData } from '@/setting';
+import { getSiteData } from '@/setting';
 import { getTimelineInfo } from '@/api/article';
 import TimeLineItem from '@/components/TimeLineItem';
 
 export default async function () {
-  const authorData = await getAuthorCardData();
+  const authorData = await getSiteData();
   const { data } = await getTimelineInfo();
   return (
     <div className='card-shadow dark:bg-dark dark:card-shadow-dark bg-white px-8 py-4 md:px-8 md:py-6'>
