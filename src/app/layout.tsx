@@ -5,30 +5,38 @@
  */
 // import type {Metadata} from 'next'
 import '@/styles';
-import {getAuthorCardData, websiteData} from '@/setting';
+import {getSiteData, websiteData} from '@/setting';
 import Layout from '@/components/layout';
 import React from 'react';
 import {Providers} from '@/lib/providers';
+import {Metadata} from "next";
 
-// export const metadata: Metadata = {
-//   title: 'lxy-blog-web',
-//   description: 'lxy-Jason的博客',
-// }
 
 export default async function RootLayout(props: React.PropsWithChildren) {
-  const authorCardData = await getAuthorCardData();
+  const siteData = await getSiteData();
   return (
     <Providers>
       <html lang='en'>
       <body>
       <Layout
-        option={websiteData}
-        title={websiteData.siteName}
-        authorCardData={authorCardData}>
+        option={siteData}
+        title={siteData.siteName}
+        authorCardData={siteData}>
         {props.children}
       </Layout>
       </body>
       </html>
     </Providers>
   );
+}
+
+export async function generateMetadata(
+): Promise<Metadata> {
+  // fetch data
+  const data = await getSiteData();
+  console.log(data.favicon)
+  return {
+    title: data.siteName,
+    description: data.siteDesc,
+  }
 }

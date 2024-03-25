@@ -31,10 +31,6 @@ export default function (props: {
 
   return (
     <>
-      <Head>
-        <meta name='description' content={props.option.description}></meta>
-        <meta name='robots' content='index, follow'></meta>
-      </Head>
       <BackToTopBtn></BackToTopBtn>
       {/*todo,谷歌和百度统计*/}
       <ThemeContext.Provider

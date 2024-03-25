@@ -9,8 +9,8 @@ class Request {
   async get<T>(url: string): Promise<T> {
     const response = await fetch(baseUrl + url, {
       headers: {
-        'Cache-Control': 'no-cache',
       },
+      next: { revalidate: 60 }
     });
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -24,8 +24,8 @@ class Request {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache',
       },
+      next: { revalidate: 60 },
       body: JSON.stringify(body),
     });
     if (!response.ok) {

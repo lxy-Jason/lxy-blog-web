@@ -88,3 +88,5 @@ export interface AuthorCardProps {
   // showSubMenu: "true" | "false";
   // showRSS: "true" | "false";
 }
+
+export type siteData = LayoutProps & AuthorCardProps

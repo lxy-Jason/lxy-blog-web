@@ -1,13 +1,18 @@
 import {
   AuthorCardProps,
   LayoutProps,
-  MenuItem,
+  MenuItem, siteData,
   SocialItem,
   SocialType,
 } from '@/types/layout';
 import { getCategoryList } from '@/api/category';
 import { getAllArticleNum } from '@/api/article';
+import {getSiteInfo} from "@/api/meta";
 
+async function globalFetch() {
+  const { data: siteInfo } = await getSiteInfo()
+
+}
 export const defaultMenu: MenuItem[] = [
   {
     id: 0,
@@ -78,19 +83,29 @@ const socialsData: SocialItem[] = [
   },
 ];
 
-export const getAuthorCardData = async (): Promise<AuthorCardProps> => {
+export const getSiteData = async (): Promise<siteData> => {
   const { data: catelogeData } = await getCategoryList();
   const { data: postNum } = await getAllArticleNum();
+  const { data: siteInfo } = await getSiteInfo()
   return {
     author: 'lxy-Jason',
-    desc: 'to do some cool',
-    logo: 'https://avatars.githubusercontent.com/u/94227696?s=400&u=7fff9765087b9819f0f48ba7428e972d5b1baaee&v=4',
-    logoDark:
-      'https://tupian.qqw21.com/article/UploadPic/2013-4/201342774330725.jpg',
+    desc: siteInfo.authorDesc || 'to do some cool',
+    logo: siteInfo.authorLogo || 'https://avatars.githubusercontent.com/u/94227696?s=400&u=7fff9765087b9819f0f48ba7428e972d5b1baaee&v=4',
+    logoDark: siteInfo.authorLogoDark,
     postNum: postNum,
     catelogNum: catelogeData.length,
     tagNum: 0,
     enableComment: 'false',
     socials: socialsData,
+    description: 'just a blog website',
+    categories: ['前端', '后端'],
+    siteName: 'lxy-blog',
+    siteDesc: 'just a blog',
+    version: '1.0.0',
+    menus: defaultMenu,
+    defaultTheme: 'light',
+    showEditButton: 'true',
+    openArticleLinksInNewWindow: 'true',
+    ...siteInfo
   };
 };
