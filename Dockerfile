@@ -17,7 +17,7 @@ FROM base AS install
 
 COPY package.json package-lock.json ./
 
-RUN npm install --ignore-engines
+RUN npm install --frozen-lockfile
 
 # 3. 基于基础镜像进行最终构建
 FROM base

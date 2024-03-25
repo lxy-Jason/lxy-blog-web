@@ -89,9 +89,9 @@ export const getSiteData = async (): Promise<siteData> => {
   const { data: siteInfo } = await getSiteInfo()
   return {
     author: 'lxy-Jason',
-    desc: siteInfo.authorDesc || 'to do some cool',
-    logo: siteInfo.authorLogo || 'https://avatars.githubusercontent.com/u/94227696?s=400&u=7fff9765087b9819f0f48ba7428e972d5b1baaee&v=4',
-    logoDark: siteInfo.authorLogoDark,
+    desc: siteInfo?.authorDesc || 'to do some cool',
+    logo: siteInfo?.authorLogo || 'https://avatars.githubusercontent.com/u/94227696?s=400&u=7fff9765087b9819f0f48ba7428e972d5b1baaee&v=4',
+    logoDark: siteInfo?.authorLogoDark,
     postNum: postNum,
     catelogNum: catelogeData.length,
     tagNum: 0,
